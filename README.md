@@ -44,9 +44,22 @@ compose the substrate underneath x402, AP2, A2A, and MPP receipts:
 - **TypeScript**: [`typescript/`](./typescript/) -- `npm install @algovoi/substrate`
 
 Python and TypeScript produce **byte-for-byte identical** hashes on the same
-input. Cross-validated against three additional JCS implementations (Go
-`gowebpki/jcs v1.0.1`, Java `cyberphone/json-canonicalization`, Rust
-`serde_jcs@0.2.0`).
+input. Cross-validated against **six additional** JCS implementations from
+non-overlapping authoring entities, including the RFC 8785 author himself
+(Anders Rundgren via the Java implementation):
+
+| Language | Package | Version | Author |
+|---|---|---|---|
+| Go | `gowebpki/jcs` | v1.0.1 | Web PKI Working Group |
+| Rust | `serde_jcs` | 0.2.0 | seritalien / Vauban Pay |
+| Java | `erdtman/java-json-canonicalization` | 1.1 | Anders Rundgren + Samuel Erdtman |
+| PHP | `root23/php-json-canonicalization` | 1.0.1 | root23 (222K downloads) |
+| C# / .NET | `Baqhub.Packages.JsonCanonicalization` | 1.0.1 | Baqhub |
+| Ruby | `json-canonicalization` | 1.0.0 | RubyGems community |
+
+**Latest 8-implementation attestation run (2026-05-24): 192/192
+byte-for-byte agreements** across 24 vectors × 8 impls. See the
+[full attestation record](https://github.com/chopmob-cloud/algovoi-jcs-conformance-vectors/blob/main/_attestations/2026-05-24-8-impl-cross-validation.md).
 
 ## Substrate matrices
 
