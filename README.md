@@ -10,6 +10,8 @@ compose the substrate underneath x402, AP2, A2A, and MPP receipts:
   (type-validation pre-canonicalisation, in-band `canon_version` pin).
 - `action_ref` atomic primitive:
   `SHA-256(JCS({agent_id, action_type, scope, timestamp_ms}))`.
+  `scope` is a non-empty string. See [Scope conventions](#scope-conventions)
+  below for the recommended `<emitter>:<scope>` namespacing form.
 - Composite trust-query algorithm (PR #2440 in `x402-foundation/x402`).
 - Compliance receipt shape matching AlgoVoi's production
   `/compliance/screen` emission.
@@ -39,6 +41,52 @@ The substrate runs in production at <https://api.algovoi.co.uk/compliance>.
 The `/compliance/attestation` audit chain is the reference exhibit for the
 `canon_version` migration boundary (pre-/post-2026-05-21) and retains
 receipts under seven-year Object Lock COMPLIANCE retention.
+
+## Scope conventions
+
+`action_ref`'s `scope` field is typed as a non-empty string at the
+canonicalisation layer. The cross-impl matrix validates the byte-equivalence
+of the canonical form across the five reference implementations, not the
+value-space.
+
+A convention is emerging across the substrate's production emitter set, and
+AlgoVoi documents it here as a non-normative recommendation.
+
+**Today**: `scope` is a free-form non-empty string. Any non-empty string
+derives a valid `action_ref`. The substrate does not impose a closed enum.
+
+**Current production usage** across the substrate's emitter set:
+
+| `scope` value | Emitter | Surface |
+| --- | --- | --- |
+| `settlement` | Vauban Pay STARK receipts; AlgoVoi `/compliance/attestation` | Settlement |
+| `bilateral` | nobulex bilateral receipts; CTEF v0.3.1 bilateral framing | Bilateral |
+| `compliance_screen` | AlgoVoi `/compliance/screen` | Admission |
+| `agent_os` | Agent OS COMMITTED Claim Engine (8715) | Onboarding |
+| `payment` | AURA `financial_integrity` reputation dimension | Reputation observe |
+| `access` | AURA `security_compliance` reputation dimension | Reputation observe |
+
+**Recommended portable form**: `<emitter>:<scope>` namespacing. As more
+emitters compose against the substrate, an unprefixed value risks collision.
+The portable form AlgoVoi recommends is:
+
+- `algovoi:compliance_screen`
+- `vauban:stark_settlement`
+- `agent_os:committed_claim`
+- `aura:reputation_observe`
+
+The namespaced value is still hashed into `action_ref`, preserving the
+dedup / idempotency property. The substrate-level constraint remains
+"non-empty string"; closing the value-space at the spec level would lock out
+future emitters arriving with valid new scopes.
+
+**Authorship**: AlgoVoi-authored. First published in response to AURA's
+scope-enum question on
+[x402#2332 comment 4526409528](https://github.com/x402-foundation/x402/issues/2332#issuecomment-4526409528).
+Also being proposed as a non-normative paragraph in the canonicalisation spec
+text ([x402#2436](https://github.com/x402-foundation/x402/pull/2436)). The
+canonical home is this README plus the linked spec PR; downstream forks and
+adopter projects are welcome to cite the convention.
 
 ## Spec references
 
