@@ -52,6 +52,16 @@ from algovoi_substrate.audit_chain import (
     append_to_chain,
     verify_audit_chain,
 )
+from algovoi_substrate.transactional import (
+    TransactionalChain,
+    TransactionalError,
+    TransitionInput,
+    TransitionPreimage,
+    TransitionRecord,
+    build_transactional_action_chain,
+    transition_hash,
+    transition_preimage,
+)
 
 __all__ = [
     # canonicalize
@@ -77,6 +87,15 @@ __all__ = [
     "AuditChainRow",
     "append_to_chain",
     "verify_audit_chain",
+    # transactional
+    "TransactionalChain",
+    "TransactionalError",
+    "TransitionInput",
+    "TransitionPreimage",
+    "TransitionRecord",
+    "build_transactional_action_chain",
+    "transition_hash",
+    "transition_preimage",
 ]
 
-__version__ = "0.2.1"
+__version__ = "0.3.0"

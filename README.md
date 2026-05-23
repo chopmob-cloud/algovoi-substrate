@@ -17,6 +17,12 @@ compose the substrate underneath x402, AP2, A2A, and MPP receipts:
   `/compliance/screen` emission.
 - Audit chain primitive: monotonic per-row hash chain with
   `content_hash` + `prev_hash` linking.
+- Transactional `action_ref` lifecycle primitives:
+  `transition_hash` + `build_transactional_action_chain`. `action_ref`
+  stable across multi-state transitions (authorisation → settlement →
+  refund); per-transition lifecycle metadata outside the preimage.
+  See [Transactional lifecycle](#transactional-action_ref-lifecycle)
+  below.
 
 ## Packages
 
@@ -87,6 +93,89 @@ Also being proposed as a non-normative paragraph in the canonicalisation spec
 text ([x402#2436](https://github.com/x402-foundation/x402/pull/2436)). The
 canonical home is this README plus the linked spec PR; downstream forks and
 adopter projects are welcome to cite the convention.
+
+## Transactional `action_ref` lifecycle
+
+For actions traversing multiple state transitions (authorisation →
+settlement → refund; issuance → execution → revocation; admission →
+review → close), `action_ref` serves as a **stable identity anchor
+across the full lifecycle**. The four-field preimage
+`{ agent_id, action_type, scope, timestamp_ms }` is fixed when the
+action is first declared and does not change as the action progresses
+through state transitions. Per-transition lifecycle metadata
+(`authority_verified_at_ms`, `revocation_check_at_ms`, settlement-proof
+timestamps, refund-window expiry) lives **outside** the `action_ref`
+preimage as separate claims that evolve with the state.
+
+The substrate ships two primitives for this:
+
+```python
+from algovoi_substrate import transition_hash, build_transactional_action_chain
+
+# Single transition: cryptographic binding of a state transition to its action.
+th = transition_hash(
+    action_ref="<lowercase 64-char hex>",
+    state="authorisation",
+    transition_timestamp_ms=1716494400000,
+    authority_verified_at_ms=1716494400500,
+    revocation_check_at_ms=1716494400800,
+)
+# th = SHA-256(JCS({action_ref, state, transition_timestamp_ms,
+#                   authority_verified_at_ms, revocation_check_at_ms}))
+
+# Full chain: action_ref stable across all transitions; each transition
+# bound to it. Emits {action_ref, transitions: [{...transition_hash}, ...]}.
+chain = build_transactional_action_chain(
+    agent_id="agent_alpha",
+    action_type="payment",
+    scope="vauban:stark_settlement",
+    timestamp_ms=1716494400000,
+    transitions=[
+        {"state": "authorisation",
+         "transition_timestamp_ms": 1716494400000,
+         "authority_verified_at_ms": 1716494400500,
+         "revocation_check_at_ms": 1716494400800},
+        {"state": "settlement",
+         "transition_timestamp_ms": 1716494500000,
+         "authority_verified_at_ms": 1716494500300,
+         "revocation_check_at_ms": 1716494500500},
+        {"state": "refund",
+         "transition_timestamp_ms": 1716494600000,
+         "authority_verified_at_ms": 1716494600300,
+         "revocation_check_at_ms": 1716494600500},
+    ],
+)
+```
+
+TypeScript exposes the same primitives as `transitionHash(...)` and
+`buildTransactionalActionChain(...)` with byte-for-byte identical
+output.
+
+Load-bearing invariants:
+
+1. `action_ref` is byte-stable across every transition of the same
+   action.
+2. `transition_hash` is bound to its `action_ref` (action_ref is part
+   of the five-field transition preimage).
+3. `transition_hash` differs per state under identical other-field
+   values; `state` is byte-load-bearing in the preimage.
+4. All timestamp fields are epoch-millisecond integers (Substrate
+   Rule 2). RFC 3339 string forms are rejected at validation time.
+5. `state` is typed as a non-empty string with no closed enum at the
+   canonicalisation layer (consistent with the scope-field treatment).
+   Payment-lifecycle vocabularies (authorisation/settlement/refund)
+   are recommended but not enforced.
+
+Byte-level reference digests are pinned in the
+[`action_ref_transactional_v0`](https://github.com/chopmob-cloud/algovoi-jcs-conformance-vectors/tree/main/vectors/action_ref_transactional_v0)
+conformance vector set: 8 vectors + 5 pair invariants, cross-validated
+byte-for-byte against the Python and TypeScript reference impls.
+
+Spec authorship: AlgoVoi-authored, documented as the "Transactional
+`action_ref` lifecycle" non-normative section of the canonicalisation
+discipline in
+[x402-foundation/x402 PR #2436](https://github.com/x402-foundation/x402/pull/2436)
+(commit f81f2fe4).
 
 ## Spec references
 

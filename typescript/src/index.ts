@@ -54,3 +54,15 @@ export {
   appendToChain,
   verifyAuditChain,
 } from './audit-chain.js';
+
+export {
+  TransactionalError,
+  type TransitionPreimage,
+  type TransitionInput,
+  type TransitionRecord,
+  type TransactionalChain,
+  type TransactionalChainInput,
+  transitionPreimage,
+  transitionHash,
+  buildTransactionalActionChain,
+} from './transactional.js';

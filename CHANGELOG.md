@@ -6,6 +6,64 @@ All notable changes to `algovoi-substrate` (Python) and `@algovoi/substrate`
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.3.0] - 2026-05-23
+
+### Added
+
+- **Transactional `action_ref` lifecycle primitive.** New module
+  `algovoi_substrate.transactional` (Python) / `@algovoi/substrate`
+  re-exports `transitionHash`, `buildTransactionalActionChain` (TypeScript).
+  Captures the substrate-level discipline that `action_ref` is the
+  stable identity anchor across multi-state transactional flows
+  (authorisation → settlement → refund; issuance → execution →
+  revocation; admission → review → close), with per-transition
+  lifecycle metadata sitting outside the `action_ref` preimage.
+
+  New primitives:
+  - `transition_hash(action_ref, state, transition_timestamp_ms,
+    authority_verified_at_ms, revocation_check_at_ms) -> str` (Python)
+    / `transitionHash(...)` (TypeScript). Returns the lowercase hex
+    SHA-256 of the five-field transition preimage.
+  - `build_transactional_action_chain(agent_id, action_type, scope,
+    timestamp_ms, transitions) -> dict` (Python) /
+    `buildTransactionalActionChain(...)` (TypeScript). Emits the chain
+    shape `{action_ref, transitions: [{...transition_hash}]}` with
+    `action_ref` byte-stable across every transition and each
+    `transition_hash` cryptographically bound to it.
+
+  All timestamp fields enforced as epoch-millisecond integers
+  (Substrate Rule 2); RFC 3339 string forms are rejected at validation
+  time. State value is a non-empty string with no closed enum at the
+  canonicalisation layer; payment-lifecycle vocabularies
+  (authorisation/settlement/refund) are recommended but not enforced.
+
+  Byte-level reference digests pinned in the
+  [`action_ref_transactional_v0`](https://github.com/chopmob-cloud/algovoi-jcs-conformance-vectors/tree/main/vectors/action_ref_transactional_v0)
+  conformance vector set (8 vectors + 5 pair invariants), cross-validated
+  byte-for-byte against Python and TypeScript reference impls.
+
+  Spec authorship: AlgoVoi-authored, documented as the "Transactional
+  `action_ref` lifecycle" non-normative section of the canonicalisation
+  discipline in
+  [x402-foundation/x402 PR #2436](https://github.com/x402-foundation/x402/pull/2436)
+  (commit f81f2fe4).
+
+### Tests
+
+- 20 new Python tests + 16 new TypeScript tests for the transactional
+  primitive: determinism, state-distinctness, action_ref binding,
+  RFC 3339 string rejection, float / boolean / negative timestamp
+  rejection, three-state payment lifecycle end-to-end, free-form state
+  vocabularies. Full suite now 74 Python + 68 TypeScript tests pass.
+
+### Unchanged from 0.2.1
+
+- All existing primitives (`canonicalize`, `action_ref`,
+  `composite_trust_query_hash`, `build_compliance_receipt`,
+  `verify_audit_chain`) retain identical signatures and byte-for-byte
+  output to 0.2.1 and earlier. The 0.3.0 release is additive only;
+  existing pinned consumers (`==0.2.1`) can upgrade safely.
+
 ## [0.2.1] - 2026-05-23
 
 ### Fixed
