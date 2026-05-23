@@ -1,6 +1,20 @@
 # algovoi-substrate
 
+[![PyPI](https://img.shields.io/pypi/v/algovoi-substrate?label=PyPI)](https://pypi.org/project/algovoi-substrate/)
+[![npm](https://img.shields.io/npm/v/@algovoi/substrate?label=npm)](https://www.npmjs.com/package/@algovoi/substrate)
+[![IETF I-D](https://img.shields.io/badge/IETF--I--D-draft--hopley--x402--compliance--receipt--00-blue)](https://datatracker.ietf.org/doc/draft-hopley-x402-compliance-receipt/)
+[![Apache 2.0](https://img.shields.io/badge/license-Apache--2.0-green)](./LICENSE)
+
 AlgoVoi agentic-payments substrate reference implementation.
+
+The compliance receipt format and canonicalisation discipline specified by
+this substrate are documented in IETF Internet-Draft
+[`draft-hopley-x402-compliance-receipt-00`](https://datatracker.ietf.org/doc/draft-hopley-x402-compliance-receipt/)
+(Independent Submission, Informational; posted to the IETF datatracker
+2026-05-23). The Python and TypeScript packages here are the reference
+implementations of the discipline the I-D specifies; the conformance vector
+corpus is at
+[`chopmob-cloud/algovoi-jcs-conformance-vectors`](https://github.com/chopmob-cloud/algovoi-jcs-conformance-vectors).
 
 Python (`algovoi-substrate` on PyPI) and TypeScript (`@algovoi/substrate` on
 npm) reference implementations of the AlgoVoi-authored primitives that
