@@ -6,6 +6,25 @@ All notable changes to `algovoi-substrate` (Python) and `@algovoi/substrate`
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.2.1] - 2026-05-23
+
+### Fixed
+
+- **Python**: `algovoi_substrate.__version__` constant now reports `0.2.1`,
+  aligned with the package version. In v0.2.0 the constant was inadvertently
+  left at `"0.1.0"` despite `pyproject.toml` reading `0.2.0`. Cosmetic only
+  (no byte-level effect on any primitive output); the v0.2.0 release was
+  cross-validated byte-for-byte against `@algovoi/substrate@0.2.0`.
+- **TypeScript**: no source change; version bumped to 0.2.1 to keep PyPI
+  and npm in lockstep per the project's standing release convention.
+
+### Unchanged from 0.2.0
+
+- Scope conventions section in README + Mintlify docs.
+- All primitives (`canonicalize`, `action_ref`, `composite_trust_query_hash`,
+  `build_compliance_receipt`, `verify_audit_chain`) retain identical
+  signatures and byte-for-byte output to 0.2.0 and 0.1.0.
+
 ## [0.2.0] - 2026-05-23
 
 ### Added
