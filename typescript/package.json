@@ -1,7 +1,7 @@
 {
   "name": "@algovoi/substrate",
-  "version": "0.4.0",
-  "description": "AlgoVoi agentic-payments substrate -- JCS canonicalisation, action_ref, composite trust-query, compliance receipts, refund receipts, audit chain",
+  "version": "0.3.0",
+  "description": "AlgoVoi agentic-payments substrate -- JCS canonicalisation, action_ref, composite trust-query, compliance receipts, audit chain",
   "keywords": [
     "x402",
     "ap2",

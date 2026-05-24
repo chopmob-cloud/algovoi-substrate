@@ -49,16 +49,6 @@ export {
 } from './compliance-receipt.js';
 
 export {
-  REFUND_RESULTS,
-  type RefundResult,
-  RefundReceiptError,
-  type RefundReceipt,
-  type RefundAmount,
-  type BuildRefundReceiptInput,
-  buildRefundReceipt,
-} from './refund-receipt.js';
-
-export {
   AuditChainError,
   type AuditChainRow,
   appendToChain,
