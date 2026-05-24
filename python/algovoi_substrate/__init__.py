@@ -46,6 +46,13 @@ from algovoi_substrate.compliance_receipt import (
     ComplianceReceiptError,
     build_compliance_receipt,
 )
+from algovoi_substrate.refund_receipt import (
+    REFUND_RESULTS,
+    RefundAmount,
+    RefundReceipt,
+    RefundReceiptError,
+    build_refund_receipt,
+)
 from algovoi_substrate.audit_chain import (
     AuditChainError,
     AuditChainRow,
@@ -82,6 +89,12 @@ __all__ = [
     "ComplianceReceipt",
     "ComplianceReceiptError",
     "build_compliance_receipt",
+    # refund_receipt
+    "REFUND_RESULTS",
+    "RefundAmount",
+    "RefundReceipt",
+    "RefundReceiptError",
+    "build_refund_receipt",
     # audit_chain
     "AuditChainError",
     "AuditChainRow",
@@ -98,4 +111,4 @@ __all__ = [
     "transition_preimage",
 ]
 
-__version__ = "0.3.0"
+__version__ = "0.4.0"
