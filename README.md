@@ -9,7 +9,7 @@ AlgoVoi agentic-payments substrate reference implementation.
 
 The compliance receipt format and canonicalisation discipline specified by
 this substrate are documented in IETF Internet-Draft
-[`draft-hopley-x402-compliance-receipt-00`](https://datatracker.ietf.org/doc/draft-hopley-x402-compliance-receipt/)
+[`draft-hopley-x402-compliance-receipt`](https://datatracker.ietf.org/doc/draft-hopley-x402-compliance-receipt/)
 (Independent Submission, Informational; posted to the IETF datatracker
 2026-05-23). The Python and TypeScript packages here are the reference
 implementations of the discipline the I-D specifies; the conformance vector
