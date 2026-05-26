@@ -66,8 +66,11 @@ verifyAuditChain([row0, row1]);
 
 ## Substrate discipline
 
-This package enforces the AlgoVoi-discipline rules formalised in PR #2436
-(`x402-foundation/x402`, three-voice coalition co-signed):
+This package enforces the AlgoVoi-authored substrate-discipline rules
+formalised in [IETF Internet-Draft `draft-hopley-x402-canonicalisation-jcs-v1`](https://datatracker.ietf.org/doc/draft-hopley-x402-canonicalisation-jcs-v1/)
+(Independent Submission, Informational; sole AlgoVoi authorship) and
+proposed for inclusion in `x402-foundation/x402` via [PR #2453](https://github.com/x402-foundation/x402/pull/2453)
+(replaces closed [#2436](https://github.com/x402-foundation/x402/pull/2436)):
 
 - **Rule 1.** `timestamp_ms` is an epoch-millisecond integer. Floats, ISO
   8601 strings, and negative values are rejected at the source-side.
@@ -115,10 +118,21 @@ The reference exhibit for this substrate is AlgoVoi's
 
 ## Spec references
 
-- [PR #2436](https://github.com/x402-foundation/x402/pull/2436) -- canonicalisation discipline
-- [PR #2440](https://github.com/x402-foundation/x402/pull/2440) -- composite trust-query
-- [PR #2434](https://github.com/x402-foundation/x402/pull/2434) -- compliance-receipt-fixture
-- [draft-vauban-x402-stark-receipts](https://datatracker.ietf.org/doc/draft-vauban-x402-stark-receipts/)
+- [draft-hopley-x402-canonicalisation-jcs-v1](https://datatracker.ietf.org/doc/draft-hopley-x402-canonicalisation-jcs-v1/) -- IETF I-D (Independent Submission, Informational, sole AlgoVoi authorship). Specifies `urn:x402:canonicalisation:jcs-rfc8785-v1`.
+- [docs.algovoi.co.uk/canonicalisation-substrate](https://docs.algovoi.co.uk/canonicalisation-substrate) -- v1 discipline reference page.
+- [docs.algovoi.co.uk/canonicalisation-substrate-v2](https://docs.algovoi.co.uk/canonicalisation-substrate-v2) -- v2 (PQC-aware) additive successor.
+- [PR #2453](https://github.com/x402-foundation/x402/pull/2453) -- live upstream spec PR for the canonicalisation discipline (sole AlgoVoi authorship; replaces closed #2436).
+- [draft-vauban-x402-stark-receipts](https://datatracker.ietf.org/doc/draft-vauban-x402-stark-receipts/) -- third-party adopter-authored receipt format that anchors to the AlgoVoi canonicalisation discipline.
+
+## Conformance to the canonicalisation discipline
+
+This package emits receipts pinned to `canon_version: jcs-rfc8785-v1` in-band. Downstream verifiers (`algovoi-audit-verifier` and any conformant third-party verifier) read the pin to select the canonicalisation rule applied at emission.
+
+The pin is the load-bearing primitive for the [Substrate Adopters Registry](https://docs.algovoi.co.uk/adopters): adopters anchoring to this discipline pin the same `canon_version` value in their own publicly-citable artefacts. AlgoVoi maintains the registry as a neutral observer; this package is recorded there as the AlgoVoi reference implementation.
+
+## Substrate adopters
+
+AlgoVoi is recorded in the [Substrate Adopters Registry](https://docs.algovoi.co.uk/adopters) as the substrate author (v1 and v2). Parties anchoring their own services or specifications to `canon_version: jcs-rfc8785-v1` are recorded in the registry via the [submission process](https://docs.algovoi.co.uk/adopters#how-to-submit-an-adoption-entry). AlgoVoi validates submissions against the artefact's canonical bytes and adds qualifying entries.
 
 ## Licence
 
