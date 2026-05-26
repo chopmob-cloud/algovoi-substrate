@@ -222,6 +222,39 @@ Parties pinning `canon_version: jcs-rfc8785-v1` in publicly-citable artefacts ar
 
 To request listing as an adopter, follow the [submission process](https://docs.algovoi.co.uk/adopters#how-to-submit-an-adoption-entry). AlgoVoi validates submissions against the artefact's canonical bytes and adds qualifying entries.
 
+## Acknowledgments
+
+This discipline is AlgoVoi-authored under sole authorship. The byte-for-byte cross-validation that anchors it is empirically possible only because of the independent JCS implementations and conformance work contributed by other parties. AlgoVoi acknowledges with thanks:
+
+**Reference JCS implementations cross-validated in the matrix** (192/192 byte-for-byte agreements across all eight):
+
+- Python [`rfc8785`](https://pypi.org/project/rfc8785/) -- Trail of Bits
+- TypeScript [`canonicalize`](https://www.npmjs.com/package/canonicalize) -- Samuel Erdtman
+- Go [`gowebpki/jcs`](https://github.com/gowebpki/jcs) -- Web PKI Working Group
+- Rust [`serde_jcs`](https://crates.io/crates/serde_jcs) -- seritalien (Vauban Pay)
+- Java [`cyberphone/json-canonicalization`](https://github.com/cyberphone/json-canonicalization) -- **Anders Rundgren** (RFC 8785 author) and Samuel Erdtman
+- PHP [`root23/php-json-canonicalization`](https://github.com/root23/php-json-canonicalization) -- root23
+- .NET [`Baqhub.Packages.JsonCanonicalization`](https://www.nuget.org/packages/Baqhub.Packages.JsonCanonicalization) -- Baqhub
+- Ruby [`json-canonicalization`](https://rubygems.org/gems/json-canonicalization) -- RubyGems community
+
+The discipline is validated by the editor of the canonicalisation standard it pins (Anders Rundgren via the Java implementation).
+
+**Independent vector-set authors** (substrate-anchored vectors that AlgoVoi cross-validated against the matrix):
+
+- [@andysalvo](https://github.com/andysalvo) -- work-binding vectors ([x402#2398](https://github.com/x402-foundation/x402/pull/2398))
+- [feedoracle](https://github.com/feedoracle) (FeedOracle) -- hybrid-PQC receipt-core vectors ([x402#2411](https://github.com/x402-foundation/x402/pull/2411))
+- [arian-gogani](https://github.com/arian-gogani) (Nobulex) -- bilateral-receipt vectors using the AlgoVoi `action_ref` derivation ([discussed on x402#2322](https://github.com/x402-foundation/x402/pull/2322))
+
+**Mirror host:**
+
+- [seritalien](https://github.com/seritalien) (Vauban Pay) -- in-tree mirror of the AlgoVoi-authored vectors at [x402#2412](https://github.com/x402-foundation/x402/pull/2412)
+
+**Discussion contributor:**
+
+- [feedoracle](https://github.com/feedoracle) (FeedOracle) -- proposed the retention-property scoping (MiCA Art. 80 / AMLR Art. 56 / DORA Art. 14) for the `canon_version` MUST clause; refined and incorporated into the discipline by AlgoVoi.
+
+These roles describe validation, mirror, and discussion work relative to the AlgoVoi-authored discipline. They are not discipline co-authorship; see the [Version governance](https://docs.algovoi.co.uk/canonicalisation-substrate#version-governance) section. The substrate-author position rests on the byte-for-byte agreement these independent parties collectively confirm.
+
 ## Licence
 
 Apache 2.0. See [`LICENSE`](./LICENSE).
