@@ -206,10 +206,21 @@ discipline in
 
 ## Spec references
 
-- [PR #2436](https://github.com/x402-foundation/x402/pull/2436) -- canonicalisation discipline (three-voice coalition co-signed)
-- [PR #2440](https://github.com/x402-foundation/x402/pull/2440) -- composite trust-query (tri-party co-signed)
-- [PR #2434](https://github.com/x402-foundation/x402/pull/2434) -- compliance-receipt-fixture
-- [draft-vauban-x402-stark-receipts](https://datatracker.ietf.org/doc/draft-vauban-x402-stark-receipts/) -- IETF I-D referencing the substrate (`urn:x402:canonicalisation:jcs-rfc8785-v1`)
+- [draft-hopley-x402-canonicalisation-jcs-v1](https://datatracker.ietf.org/doc/draft-hopley-x402-canonicalisation-jcs-v1/) -- IETF Internet-Draft (Independent Submission, Informational, sole AlgoVoi authorship). Specifies `urn:x402:canonicalisation:jcs-rfc8785-v1`.
+- [docs.algovoi.co.uk/canonicalisation-substrate](https://docs.algovoi.co.uk/canonicalisation-substrate) -- v1 discipline reference page.
+- [docs.algovoi.co.uk/canonicalisation-substrate-v2](https://docs.algovoi.co.uk/canonicalisation-substrate-v2) -- v2 (PQC-aware) additive successor.
+- [x402#2453](https://github.com/x402-foundation/x402/pull/2453) -- live upstream spec PR for the canonicalisation discipline (sole AlgoVoi authorship; replaces closed [#2436](https://github.com/x402-foundation/x402/pull/2436)).
+- [draft-vauban-x402-stark-receipts](https://datatracker.ietf.org/doc/draft-vauban-x402-stark-receipts/) -- third-party adopter-authored IETF I-D that anchors to the AlgoVoi canonicalisation discipline (Vauban Pay authors the receipt format; AlgoVoi authors the canonicalisation discipline the receipt format anchors against).
+
+## Adopters
+
+Parties pinning `canon_version: jcs-rfc8785-v1` in publicly-citable artefacts are recorded in the [Substrate Adopters Registry](https://docs.algovoi.co.uk/adopters). Current adopters:
+
+- **AlgoVoi** -- production gateway + this reference implementation
+- **Supership / Crest Deployment Systems** -- `service_trust_v0` vectors + `urn:crest:trust-check-v1` envelope at `verify.crestsystems.ai`
+- **PEAC Protocol** -- AP2 `open_mandate_hash` v0 fixture set ([peacprotocol/peac](https://github.com/peacprotocol/peac))
+
+To request listing as an adopter, follow the [submission process](https://docs.algovoi.co.uk/adopters#how-to-submit-an-adoption-entry). AlgoVoi validates submissions against the artefact's canonical bytes and adds qualifying entries.
 
 ## Licence
 
