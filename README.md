@@ -77,7 +77,7 @@ byte-for-byte agreements** across 24 vectors × 8 impls. See the
 The substrate runs in production at <https://api.algovoi.co.uk/compliance>.
 The `/compliance/attestation` audit chain is the reference exhibit for the
 `canon_version` migration boundary (pre-/post-2026-05-21) and retains
-receipts under seven-year Object Lock COMPLIANCE retention.
+receipts under seven-year Object Lock COMPLIANCE retention. The `action_ref` canonical hash computation is also available as a standalone public verifier at [`verify.algovoi.co.uk/action-ref`](https://verify.algovoi.co.uk/action-ref) — returns the RFC 8785 JCS canonical form and SHA-256 digest, verified byte-identical across 8 independent implementations.
 
 ## Scope conventions
 
