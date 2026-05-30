@@ -259,6 +259,17 @@ The discipline is validated by the editor of the canonicalisation standard it pi
 
 These roles describe validation, mirror, and discussion work relative to the AlgoVoi-authored discipline. They are not discipline co-authorship; see the [Version governance](https://docs.algovoi.co.uk/canonicalisation-substrate#version-governance) section. The substrate-author position rests on the byte-for-byte agreement these independent parties collectively confirm.
 
+## Tests
+
+```bash
+# Python (74 tests)
+pip install -e python/[dev]
+python -m pytest python/tests/ -v
+
+# TypeScript (68 tests)
+cd typescript && npm install && npm test
+```
+
 ## Licence
 
 Apache 2.0. See [`LICENSE`](./LICENSE).
