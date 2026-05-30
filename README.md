@@ -219,6 +219,7 @@ discipline in
 Parties pinning `canon_version: jcs-rfc8785-v1` in publicly-citable artefacts are recorded in the [Substrate Adopters Registry](https://docs.algovoi.co.uk/adopters). Current adopters:
 
 - **AlgoVoi** -- production gateway + this reference implementation
+- **Supership / Crest Deployment Systems** -- `service_trust_v0` vectors + `urn:crest:trust-check-v1` envelope at `verify.crestsystems.ai`
 - **PEAC Protocol** -- AP2 `open_mandate_hash` v0 fixture set ([peacprotocol/peac](https://github.com/peacprotocol/peac))
 
 To request listing as an adopter, follow the [submission process](https://docs.algovoi.co.uk/adopters#how-to-submit-an-adoption-entry). AlgoVoi validates submissions against the artefact's canonical bytes and adds qualifying entries.
@@ -242,6 +243,7 @@ The discipline is validated by the editor of the canonicalisation standard it pi
 
 **Independent vector-set authors** (substrate-anchored vectors that AlgoVoi cross-validated against the matrix):
 
+- [@andysalvo](https://github.com/andysalvo) -- work-binding vectors ([x402#2398](https://github.com/x402-foundation/x402/pull/2398))
 - [feedoracle](https://github.com/feedoracle) (FeedOracle) -- hybrid-PQC receipt-core vectors ([x402#2411](https://github.com/x402-foundation/x402/pull/2411))
 - [arian-gogani](https://github.com/arian-gogani) (Nobulex) -- bilateral-receipt vectors using the AlgoVoi `action_ref` derivation ([discussed on x402#2322](https://github.com/x402-foundation/x402/pull/2322))
 
