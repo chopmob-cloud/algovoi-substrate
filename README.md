@@ -55,9 +55,9 @@ non-overlapping authoring entities, including the RFC 8785 author himself
 | Language | Package | Version | Author |
 |---|---|---|---|
 | Go | `gowebpki/jcs` | v1.0.1 | Web PKI Working Group |
-| Rust | `serde_jcs` | 0.2.0 | seritalien / Vauban Pay |
+| Rust | `serde_jcs` | 0.2.0 | l1h3r |
 | Java | `erdtman/java-json-canonicalization` | 1.1 | Anders Rundgren + Samuel Erdtman |
-| PHP | `root23/php-json-canonicalization` | 1.0.1 | root23 (222K downloads) |
+| PHP | inline pure-stdlib JCS | AlgoVoi |
 | C# / .NET | `Baqhub.Packages.JsonCanonicalization` | 1.0.1 | Baqhub |
 | Ruby | `json-canonicalization` | 1.0.0 | RubyGems community |
 
