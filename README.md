@@ -214,14 +214,11 @@ discipline in
 - [docs.algovoi.co.uk/canonicalisation-substrate](https://docs.algovoi.co.uk/canonicalisation-substrate) -- v1 discipline reference page.
 - [docs.algovoi.co.uk/canonicalisation-substrate-v2](https://docs.algovoi.co.uk/canonicalisation-substrate-v2) -- v2 (PQC-aware) additive successor.
 - [x402#2453](https://github.com/x402-foundation/x402/pull/2453) -- live upstream spec PR for the canonicalisation discipline (sole AlgoVoi authorship; replaces closed [#2436](https://github.com/x402-foundation/x402/pull/2436)).
-- [draft-vauban-x402-stark-receipts](https://datatracker.ietf.org/doc/draft-vauban-x402-stark-receipts/) -- third-party adopter-authored IETF I-D that anchors to the AlgoVoi canonicalisation discipline (Vauban Pay authors the receipt format; AlgoVoi authors the canonicalisation discipline the receipt format anchors against).
-
 ## Adopters
 
 Parties pinning `canon_version: jcs-rfc8785-v1` in publicly-citable artefacts are recorded in the [Substrate Adopters Registry](https://docs.algovoi.co.uk/adopters). Current adopters:
 
 - **AlgoVoi** -- production gateway + this reference implementation
-- **Supership / Crest Deployment Systems** -- `service_trust_v0` vectors + `urn:crest:trust-check-v1` envelope at `verify.crestsystems.ai`
 - **PEAC Protocol** -- AP2 `open_mandate_hash` v0 fixture set ([peacprotocol/peac](https://github.com/peacprotocol/peac))
 
 To request listing as an adopter, follow the [submission process](https://docs.algovoi.co.uk/adopters#how-to-submit-an-adoption-entry). AlgoVoi validates submissions against the artefact's canonical bytes and adds qualifying entries.
@@ -235,9 +232,9 @@ This discipline is AlgoVoi-authored under sole authorship. The byte-for-byte cro
 - Python [`rfc8785`](https://pypi.org/project/rfc8785/) -- Trail of Bits
 - TypeScript [`canonicalize`](https://www.npmjs.com/package/canonicalize) -- Samuel Erdtman
 - Go [`gowebpki/jcs`](https://github.com/gowebpki/jcs) -- Web PKI Working Group
-- Rust [`serde_jcs`](https://crates.io/crates/serde_jcs) -- seritalien (Vauban Pay)
+- Rust [`serde_jcs`](https://crates.io/crates/serde_jcs) -- [l1h3r](https://github.com/l1h3r)
 - Java [`cyberphone/json-canonicalization`](https://github.com/cyberphone/json-canonicalization) -- **Anders Rundgren** (RFC 8785 author) and Samuel Erdtman
-- PHP [`root23/php-json-canonicalization`](https://github.com/root23/php-json-canonicalization) -- root23
+- PHP -- inline pure-stdlib JCS (AlgoVoi-authored, no external dependency)
 - .NET [`Baqhub.Packages.JsonCanonicalization`](https://www.nuget.org/packages/Baqhub.Packages.JsonCanonicalization) -- Baqhub
 - Ruby [`json-canonicalization`](https://rubygems.org/gems/json-canonicalization) -- RubyGems community
 
@@ -245,13 +242,8 @@ The discipline is validated by the editor of the canonicalisation standard it pi
 
 **Independent vector-set authors** (substrate-anchored vectors that AlgoVoi cross-validated against the matrix):
 
-- [@andysalvo](https://github.com/andysalvo) -- work-binding vectors ([x402#2398](https://github.com/x402-foundation/x402/pull/2398))
 - [feedoracle](https://github.com/feedoracle) (FeedOracle) -- hybrid-PQC receipt-core vectors ([x402#2411](https://github.com/x402-foundation/x402/pull/2411))
 - [arian-gogani](https://github.com/arian-gogani) (Nobulex) -- bilateral-receipt vectors using the AlgoVoi `action_ref` derivation ([discussed on x402#2322](https://github.com/x402-foundation/x402/pull/2322))
-
-**Mirror host:**
-
-- [seritalien](https://github.com/seritalien) (Vauban Pay) -- in-tree mirror of the AlgoVoi-authored vectors at [x402#2412](https://github.com/x402-foundation/x402/pull/2412)
 
 **Discussion contributor:**
 
