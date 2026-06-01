@@ -68,8 +68,8 @@ verify_audit_chain([row0, row1])
 
 ## Substrate discipline
 
-This package enforces the AlgoVoi-discipline rules formalised in PR #2436
-(x402-foundation/x402, three-voice coalition co-signed):
+This package enforces the AlgoVoi-discipline rules authored by AlgoVoi and proposed in PR #2453
+(x402-foundation/x402, sole AlgoVoi authorship; replaces closed PR #2436):
 
 - **Rule 1.** `timestamp_ms` is an epoch-millisecond integer. Floats, ISO 8601
   strings, and negative values are rejected at the source-side.

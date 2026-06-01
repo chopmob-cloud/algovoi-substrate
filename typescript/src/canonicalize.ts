@@ -2,8 +2,8 @@
  * JCS RFC 8785 canonicalisation with the AlgoVoi-discipline rules.
  *
  * The canonicalisation discipline is the shared normative substrate for
- * x402, AP2, A2A, and MPP receipts, formalised in PR #2436 in
- * x402-foundation/x402 (three-voice coalition co-signed). This module
+ * x402, AP2, A2A, and MPP receipts, authored by AlgoVoi and proposed in PR #2453 in
+ * x402-foundation/x402 (sole AlgoVoi authorship; replaces closed PR #2436). This module
  * wraps the `canonicalize` npm package (v3.0.0) with the discipline's
  * pre-canonicalisation rules.
  *
