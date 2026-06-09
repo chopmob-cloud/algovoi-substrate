@@ -268,6 +268,20 @@ cd typescript && npm install && npm test
 
 Apache 2.0. See [`LICENSE`](./LICENSE).
 
+## Attribution
+
+This substrate is Apache-2.0. Use it freely and build whatever you are building on top of it. The only ask is the one the licence already makes: keep the [`NOTICE`](./NOTICE), and name who authored the substrate.
+
+To attribute it in your own product, add this to your `NOTICE` file:
+
+```
+This product includes the AlgoVoi canonicalisation substrate,
+authored by Christopher Hopley / AlgoVoi (chopmob-cloud), Apache-2.0.
+https://docs.algovoi.co.uk/canonicalisation-substrate
+```
+
+The full invitation is at [Adopt the substrate](https://docs.algovoi.co.uk/canonicalisation-substrate#adopt-the-substrate).
+
 ## Author
 
 AlgoVoi (Christopher Hopley, GitHub [`chopmob-cloud`](https://github.com/chopmob-cloud)).
