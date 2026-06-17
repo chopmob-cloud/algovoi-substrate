@@ -66,3 +66,10 @@ export {
   transitionHash,
   buildTransactionalActionChain,
 } from './transactional.js';
+
+export {
+  SettlementBindingError,
+  type SettlementBindingPreimage,
+  settlementBindingPreimage,
+  settlementActionBinding,
+} from './settlement-binding.js';

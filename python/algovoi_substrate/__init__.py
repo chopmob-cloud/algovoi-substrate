@@ -62,6 +62,12 @@ from algovoi_substrate.transactional import (
     transition_hash,
     transition_preimage,
 )
+from algovoi_substrate.settlement_binding import (
+    SettlementBindingError,
+    SettlementBindingPreimage,
+    settlement_action_binding,
+    settlement_binding_preimage,
+)
 
 __all__ = [
     # canonicalize
@@ -96,6 +102,11 @@ __all__ = [
     "build_transactional_action_chain",
     "transition_hash",
     "transition_preimage",
+    # settlement_binding
+    "SettlementBindingError",
+    "SettlementBindingPreimage",
+    "settlement_action_binding",
+    "settlement_binding_preimage",
 ]
 
-__version__ = "0.3.0"
+__version__ = "0.4.0"
