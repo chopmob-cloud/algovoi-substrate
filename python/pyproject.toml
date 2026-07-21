@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "algovoi-substrate"
-version = "0.4.0"
-description = "AlgoVoi agentic-payments substrate -- JCS canonicalisation, action_ref, composite trust-query, compliance receipts, audit chain, settlement-action binding"
+version = "0.5.0"
+description = "AlgoVoi agentic-payments substrate -- JCS canonicalisation, CAIP-2/10/19 chain-agnostic identifier validation, action_ref, composite trust-query, compliance receipts, audit chain, settlement-action binding"
 readme = "README.md"
 requires-python = ">=3.10"
 license = { text = "Apache-2.0" }
@@ -15,6 +15,7 @@ authors = [
 keywords = [
   "x402", "ap2", "a2a", "mpp",
   "jcs", "rfc8785", "canonicalisation",
+  "caip", "caip-2", "caip-10", "caip-19", "chain-agnostic",
   "agentic-payments", "compliance",
   "audit-chain", "trust-query",
 ]
@@ -40,6 +41,7 @@ dependencies = [
 test = [
   "pytest>=7",
   "pytest-cov>=4",
+  "hypothesis>=6",
 ]
 
 [project.urls]

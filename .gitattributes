@@ -1,0 +1,8 @@
+# Reproducible source builds.
+#
+# Normalize ALL text files to LF in the repository and on checkout, so that
+# the PyPI wheel/sdist and the npm tarball built from a source checkout are
+# byte-for-byte identical regardless of the checkout platform's core.autocrlf
+# setting (Windows checkouts default to CRLF, which otherwise changes the
+# packaged bytes and breaks the reproducible-build guarantee).
+* text=auto eol=lf

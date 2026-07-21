@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: Apache-2.0
+// Copyright 2026 Christopher Hopley / AlgoVoi (chopmob-cloud)
 /**
  * @algovoi/substrate
  *
@@ -73,3 +75,31 @@ export {
   settlementBindingPreimage,
   settlementActionBinding,
 } from './settlement-binding.js';
+
+export {
+  CaipError,
+  REGISTERED_NAMESPACES,
+  isCaip2,
+  isCaip10,
+  isCaip19,
+  requireCaip2,
+  requireCaip10,
+  requireCaip19,
+  caip19Slip44,
+  caip10Of,
+  registeredNamespaces,
+  isRegisteredNamespace,
+  isRegisteredCaip2,
+  isRegisteredCaip10,
+  isRegisteredCaip19,
+  requireRegisteredCaip2,
+  requireRegisteredCaip10,
+  requireRegisteredCaip19,
+  REFERENCE_FORMAT_NAMESPACES,
+  isValidCaip2,
+  isValidCaip10,
+  isValidCaip19,
+  requireValidCaip2,
+  requireValidCaip10,
+  requireValidCaip19,
+} from './caip.js';

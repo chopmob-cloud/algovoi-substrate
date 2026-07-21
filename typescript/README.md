@@ -2,9 +2,10 @@
 
 AlgoVoi agentic-payments substrate reference implementation.
 
-JCS RFC 8785 canonicalisation, `actionRef` atomic primitive, composite
-trust-query algorithm, compliance receipt shape, and audit chain primitives
-that compose the substrate underneath x402, AP2, A2A, and MPP receipts.
+JCS RFC 8785 canonicalisation, CAIP-2/10/19 chain-agnostic identifier
+validation, `actionRef` atomic primitive, composite trust-query algorithm,
+compliance receipt shape, and audit chain primitives that compose the
+substrate underneath x402, AP2, A2A, and MPP receipts.
 
 The substrate runs in production at `https://api.algovoi.co.uk/compliance`.
 This package is the AlgoVoi-authored TypeScript reference implementation;
@@ -63,6 +64,46 @@ const row0 = appendToChain(receipt, null);
 const row1 = appendToChain({ event: 'next' }, row0);
 verifyAuditChain([row0, row1]);
 ```
+
+## CAIP identifiers (chain-agnostic)
+
+`@algovoi/substrate` validates CAIP-2 chain ids, CAIP-10 account ids, and
+CAIP-19 asset ids. When such an identifier is folded into a canonicalised,
+content-addressed record it becomes part of the hash preimage, so it must be
+byte-canonical or two verifiers' digests diverge. The validators reject a
+trailing newline (no multiline flag), matching the Python sibling
+byte-for-byte, and the strict `require*` forms are the pre-hash gate that
+fails a non-canonical identifier closed.
+
+```typescript
+import {
+  isCaip2, isCaip10, isCaip19,
+  requireCaip2, caip10Of, caip19Slip44,
+} from '@algovoi/substrate';
+
+isCaip2('eip155:1');                     // true
+isCaip10('eip155:1:0xAb16a9...');        // true
+isCaip19('eip155:1/slip44:60');          // true
+
+caip10Of('eip155:1', '0xAb16a9...');     // 'eip155:1:0xAb16a9...'
+caip19Slip44('eip155:1', 60);            // 'eip155:1/slip44:60'
+requireCaip2('eip155:1\n');              // throws CaipError (trailing newline)
+```
+
+Three opt-in tiers, additive and chain-agnostic by default:
+
+1. **Grammar** -- `isCaip2/10/19`: the CAIP grammar only, so a future or
+   not-yet-registered chain still validates.
+2. **Registered namespace** -- `isRegisteredCaip2/10/19`: additionally
+   requires a namespace registered in `ChainAgnostic/namespaces` (e.g.
+   `eip155`, `solana`, `cosmos`, `xrpl`).
+3. **Reference format** -- `isValidCaip2/10/19`: strictest; additionally
+   requires the chain reference to be well-formed for its namespace, so
+   `eip155:abc` is rejected because `eip155` references are decimal.
+
+Each tier has a `require*` counterpart (`requireCaip*`,
+`requireRegisteredCaip*`, `requireValidCaip*`) that returns the identifier
+unchanged or throws `CaipError`.
 
 ## Substrate discipline
 
