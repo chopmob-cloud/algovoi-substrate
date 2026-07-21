@@ -1,0 +1,50 @@
+{
+  "source": "ChainAgnostic/namespaces registry docs (caip2/10/19.md), extracted + verified 2026-07-19",
+  "note": "Real identifiers pulled from the on-chain-namespace registry. registered_real must be accepted by the grammar AND land on a registered namespace; unregistered_shorthand are grammar-valid but use a doc shorthand namespace the registry does not register (e.g. 'eip' for 'eip155'), which the registered layer correctly rejects.",
+  "registered_real": [
+    "alephium:universal",
+    "casper:casper-test",
+    "chia:ccd5bb71183532bff220ba46c268991a",
+    "eip155:15000",
+    "eip155:295",
+    "eip155:296",
+    "eip155:9",
+    "flow:mainnet",
+    "flow:testnet",
+    "haneul:testnet",
+    "hive:42000000000000000000000000000000",
+    "hive:beeab0de000000000000000000000000",
+    "iota:6364aad5",
+    "iota:devnet",
+    "iota:mainnet",
+    "iota:testnet",
+    "monero:00000000000000000000000000000000",
+    "quai:15000",
+    "quai:15000:0x004d2EE5F59c0a7dF5C54D6C9D5a4F3E3B8e1d2f",
+    "quai:15000:0x004d2Ee5f59c0A7Df5C54d6C9d5a4f3e3b8E1d2F",
+    "quai:15000:0x00B2f4C6e8a0D2F4E6a8b0D2F4C6e8A0B2F4c6E8",
+    "quai:9",
+    "quai:9:0x000DEAdbeEFCafE0000000000000000000000000",
+    "quai:9:0x00841c4349dbC3CD16098ef0aF2780BA0F7f5C02",
+    "quai:9:0x008fb5C7919B14a1Cd9c2e5f8D3e4B2a7f6c9D0e",
+    "quai:9:0x014c3e5f1B2A4D6F8e0C9a7b5D3F1e4C2a0b8d6f",
+    "quai:9:0x102a4D6f8e0c9A7b5d3f1e4C2a0b8d6f1C3e5f1b",
+    "stellar:pubnet",
+    "stellar:pubnet/slip44:148",
+    "stellar:testnet",
+    "sui:devnet",
+    "sui:mainnet",
+    "sui:testnet",
+    "tezos:mainnet",
+    "wallet:eip155"
+  ],
+  "unregistered_shorthand": [
+    "eip:297",
+    "eip:298"
+  ],
+  "conflux_verified": [
+    "conflux:cfx",
+    "conflux:cfxtest",
+    "conflux:net2024"
+  ]
+}

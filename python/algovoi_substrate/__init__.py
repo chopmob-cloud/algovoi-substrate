@@ -68,6 +68,33 @@ from algovoi_substrate.settlement_binding import (
     settlement_action_binding,
     settlement_binding_preimage,
 )
+from algovoi_substrate.caip import (
+    REGISTERED_NAMESPACES,
+    CaipError,
+    caip10_of,
+    caip19_slip44,
+    is_caip2,
+    is_caip10,
+    is_caip19,
+    is_registered_caip2,
+    is_registered_caip10,
+    is_registered_caip19,
+    is_registered_namespace,
+    is_valid_caip2,
+    is_valid_caip10,
+    is_valid_caip19,
+    REFERENCE_FORMAT_NAMESPACES,
+    registered_namespaces,
+    require_caip2,
+    require_caip10,
+    require_caip19,
+    require_registered_caip2,
+    require_registered_caip10,
+    require_registered_caip19,
+    require_valid_caip2,
+    require_valid_caip10,
+    require_valid_caip19,
+)
 
 __all__ = [
     # canonicalize
@@ -107,6 +134,32 @@ __all__ = [
     "SettlementBindingPreimage",
     "settlement_action_binding",
     "settlement_binding_preimage",
+    # caip
+    "REGISTERED_NAMESPACES",
+    "CaipError",
+    "caip10_of",
+    "caip19_slip44",
+    "is_caip2",
+    "is_caip10",
+    "is_caip19",
+    "is_registered_caip2",
+    "is_registered_caip10",
+    "is_registered_caip19",
+    "is_registered_namespace",
+    "is_valid_caip2",
+    "is_valid_caip10",
+    "is_valid_caip19",
+    "REFERENCE_FORMAT_NAMESPACES",
+    "registered_namespaces",
+    "require_caip2",
+    "require_caip10",
+    "require_caip19",
+    "require_registered_caip2",
+    "require_registered_caip10",
+    "require_registered_caip19",
+    "require_valid_caip2",
+    "require_valid_caip10",
+    "require_valid_caip19",
 ]
 
-__version__ = "0.4.0"
+__version__ = "0.5.0"

@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "algovoi-substrate"
-version = "0.4.0"
+version = "0.5.0"
 description = "AlgoVoi agentic-payments substrate -- JCS canonicalisation, action_ref, composite trust-query, compliance receipts, audit chain, settlement-action binding"
 readme = "README.md"
 requires-python = ">=3.10"
@@ -40,6 +40,7 @@ dependencies = [
 test = [
   "pytest>=7",
   "pytest-cov>=4",
+  "hypothesis>=6",
 ]
 
 [project.urls]
