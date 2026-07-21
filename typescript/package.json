@@ -1,7 +1,7 @@
 {
   "name": "@algovoi/substrate",
   "version": "0.5.0",
-  "description": "AlgoVoi agentic-payments substrate -- JCS canonicalisation, action_ref, composite trust-query, compliance receipts, audit chain, settlement-action binding",
+  "description": "AlgoVoi agentic-payments substrate -- JCS canonicalisation, CAIP-2/10/19 chain-agnostic identifier validation, action_ref, composite trust-query, compliance receipts, audit chain, settlement-action binding",
   "keywords": [
     "x402",
     "ap2",
@@ -10,6 +10,11 @@
     "jcs",
     "rfc8785",
     "canonicalisation",
+    "caip",
+    "caip-2",
+    "caip-10",
+    "caip-19",
+    "chain-agnostic",
     "agentic-payments",
     "compliance",
     "audit-chain",
