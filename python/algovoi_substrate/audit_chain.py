@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: Apache-2.0
+# Copyright 2026 Christopher Hopley / AlgoVoi (chopmob-cloud)
 """
 Audit chain primitive: monotonic per-row hash chain.
 

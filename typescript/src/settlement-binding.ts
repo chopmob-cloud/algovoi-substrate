@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: Apache-2.0
+// Copyright 2026 Christopher Hopley / AlgoVoi (chopmob-cloud)
 /**
  * Settlement-action binding (non-normative substrate extension).
  *

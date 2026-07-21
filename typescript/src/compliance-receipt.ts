@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: Apache-2.0
+// Copyright 2026 Christopher Hopley / AlgoVoi (chopmob-cloud)
 /**
  * Compliance receipt shape matching AlgoVoi's production /compliance/screen.
  *

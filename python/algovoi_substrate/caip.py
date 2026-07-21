@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: Apache-2.0
+# Copyright 2026 Christopher Hopley / AlgoVoi (chopmob-cloud)
 """
 Chain Agnostic Improvement Proposal (CAIP) identifier grammar: CAIP-2 chain ids,
 CAIP-10 account ids, CAIP-19 asset ids.

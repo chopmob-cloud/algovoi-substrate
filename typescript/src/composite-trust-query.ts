@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: Apache-2.0
+// Copyright 2026 Christopher Hopley / AlgoVoi (chopmob-cloud)
 /**
  * Composite trust-query algorithm (PR #2440 in x402-foundation/x402).
  *
