@@ -19,6 +19,17 @@ on 53 conformance vectors and 3 composite-trust-query vectors.
 npm install @algovoi/substrate
 ```
 
+This package is **ESM only** (`"type": "module"`). Import it with `import`, or from
+CommonJS with a dynamic `import()`:
+
+```javascript
+// ESM
+import { isCaip2 } from '@algovoi/substrate';
+
+// CommonJS: require() is not supported, use dynamic import()
+const { isCaip2 } = await import('@algovoi/substrate');
+```
+
 ## Quickstart
 
 ```typescript

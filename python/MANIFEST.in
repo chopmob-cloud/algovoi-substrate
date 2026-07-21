@@ -1,3 +1,9 @@
 include NOTICE
 include README.md
 include LICENSE
+
+# Ship the whole test suite, not just the files setuptools auto-detects.
+# The sdist heuristic picks up test*.py but silently drops helpers such as
+# tests/caip_oracle.py and tests/caip_realworld.json, which made the bundled
+# suite fail collection when run from the source distribution.
+recursive-include tests *.py *.json
